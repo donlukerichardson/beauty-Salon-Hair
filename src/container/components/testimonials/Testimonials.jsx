@@ -6,8 +6,8 @@ function Testimonials() {
      <section className="testimonials">
         <div className="testimonials-content">
           <div className="section-title">
-            <h1>testimonials</h1>
-            <span>see what our customer say</span>
+            <h1>témoignages</h1>
+            <span>voir ce que disent nos clients</span>
           </div>
           <div className="testimonials-card">
             <div className="testimonials-item">

@@ -6,8 +6,8 @@ function Gallery() {
       <section className="gallery" id="gallery">
         <div className="gallery-content">
           <div className="section-title">
-            <h1>gallery</h1>
-            <span>the princesses of our instagram</span>
+            <h1>Galerie</h1>
+            <span>les princesses de notre instagram</span>
           </div>
           <div className="gallery-list-img">
             <div className="gallery-img">
@@ -35,7 +35,7 @@ function Gallery() {
               <img src="img/img-insta/photo8.png" alt=''/>
             </div>
           </div>
-          <button className="btn">see more</button>
+          <button className="btn">voir plus</button>
         </div>
       </section>
     </>

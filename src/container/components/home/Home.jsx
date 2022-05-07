@@ -8,13 +8,17 @@ function Home() {
           <div className="home-img">
             <img src="/img/home-img.png" alt='' />
           </div>
+       
+
+
+
           <div className="home-content">
-          <h1>Welcome<br /><span>in Salon Rihana</span></h1>
-            <h1>Your big day<br /><span>in style</span></h1>
-            <p>Come see our bride's corner and take the opportunity to schedule your date.</p>
+          <h1>Bienvenue<br /><span>dans Salon Rihana</span></h1>
+            <h1>Votre grand jour<br /><span>dans le style</span></h1>
+            <p>Venez voir notre coin des mariées et profitez-en pour programmer votre rendez-vous.</p>
             <a href="#btn" className="btn btn-outline">
               <i className="fab fa-whatsapp" />
-              Schedule your time
+              Planifiez votre temps
             </a>
           </div>
         </div>

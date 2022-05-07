@@ -14,22 +14,22 @@ function Footer() {
             </div>
           </div>
           <div className="footer-data">
-            <h2>address</h2>
-            <p>Centre Ville - St 26<br /> Fez - Morocco</p>
+            <h2>adresse</h2>
+            <p>Centre Ville - St 26<br /> Fés - Maroc</p>
           </div>
           <div className="footer-data">
-            <h2>We Opened</h2>
-            <p>Monday To Friday <br /> From 09:00 To 18:00</p>
+            <h2>Nous avons ouvert</h2>
+            <p>Lundi à vendredi <br /> De 09h00 à 18h00</p>
           </div>
           <div className="footer-data">
-            <h2>Contact</h2>
+            <h2>Contacter</h2>
             <p>+212 688727657</p>
             {/* <p>(20) 4444-555-666</p> */}
           </div>
         </div>
         <div className="copy">
-          <p>© All Rights Reserved</p>
-          <span>Created by 🤎 Web Trend</span>
+          <p>© Tous les droits sont réservés</p>
+          <span>Créé par 🤎 Tendance Web</span>
         </div>
       </footer>
     </>

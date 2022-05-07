@@ -6,6 +6,7 @@ import Gallery from './container/components/gallery/Gallery';
 import Header from './container/components/header/Header';
 import Home from './container/components/home/Home';
 import Package from './container/components/package/Package';
+import Promo from './container/components/package/Promo';
 import Service from './container/components/service/Service';
 import Testimonials from './container/components/testimonials/Testimonials';
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Service/>
       <Package/>
       <Gallery/>
+      <Promo/>
       <Testimonials/>
       <Footer/>
     </div>

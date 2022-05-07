@@ -3,59 +3,61 @@ import React from 'react'
 function Service() {
   return (
     <>
-     <section className="services" id="services">
+     <section className="services"  id="services"
+      style={{backgroundImage: `url(./img/arabesque-left-top.svg)`}}
+     >
         <div className="services-content">
           <div className="section-title">
             <h1>services</h1>
-            <span>what we do</span>
+            <span>Ce que nous faisons</span>
           </div>
           <div className="services-content-description">
             <div className="box">
               <div className="inner">
                 <img src="/img/services/manicure.png" />
-                <p>manicure</p>
+                <p>Manucure</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/pedicure.png" />
-                <p>padicure</p>
+                <p>Manucure / Pédicure</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/makeup.png" />
-                <p>makeup</p>
+                <p>Maquillage</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/hairstyle.png" />
-                <p>hairstyle</p>
+                <p>Pack Mariée</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/haircut.png" />
-                <p>haircut</p>
+                <p>Coiffure</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/eyebrow design.png" />
-                <p>eyebrow design</p>
+                <p>Soins Visage</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/waxing.png" />
-                <p>waxing</p>
+                <p>épilation</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
                 <img src="/img/services/skin cleansing.png" />
-                <p>skin cleansing</p>
+                <p>Cheveux</p>
               </div>
             </div>
           </div>
