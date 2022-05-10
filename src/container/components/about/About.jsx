@@ -15,7 +15,7 @@ function About() {
         <div className="container">
           <div className="section-title">
             <h1>notre histoire</h1>
-            <span>studio hair</span>
+            <span>coiff_rihana</span>
           </div>
           <div className="about-detail">
             <div className="about-detail-content">

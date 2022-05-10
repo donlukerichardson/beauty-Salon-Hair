@@ -697,6 +697,10 @@ position: relative;
         margin-top: 3rem;
         grid-template-columns: unset;
     }
+    .about-description{
+        padding: 0px;
+        margin-top: 25px;
+    }
     .testimonials-item:hover .testimonials-img img{
         transform: translateX(220px) rotate(360deg);
     }
