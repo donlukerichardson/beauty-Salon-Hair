@@ -50,30 +50,6 @@ function Promo() {
                 <i className="far fa-check-square check-icon" />
                 <p>Les anglaise :<span>(à partir de)</span><strong>30 dh</strong>  </p>
               </div>
-              {/* <div className="item">
-                <i className="far fa-check-square check-icon" />
-                <p>nails<span>(traditional french)</span></p>
-              </div>
-              <div className="item">
-                <i className="far fa-times-square x-icon" />
-                <p className="not">hair removal</p>
-              </div>
-              <div className="item">
-                <i className="far fa-times-square x-icon" />
-                <p className="not">eyebrow design</p>
-              </div>
-              <div className="item">
-                <i className="far fa-times-square x-icon" />
-                <p className="not">skin cleansing</p>
-              </div>
-              <div className="item">
-                <i className="far fa-times-square x-icon" />
-                <p className="not">reserved bridal room</p>
-              </div>
-              <div className="item">
-                <i className="far fa-times-square x-icon" />
-                <p className="not">table fruit</p>
-              </div> */}
               <button className="btn">Je veux ceci</button>
             </div>             
           </div>
