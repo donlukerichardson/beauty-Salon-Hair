@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 function About() {
+  const [showMore, setShowMore] = useState(false);
+  const data =
+    "Un coiffeur ou une coiffeuse est une personne formée pour couper et entretenir les cheveux. Elle peut travailler dans un salon de coiffure, à son domicile ou chez son client. Lestypes de coiffures, les techniques et les outils employés sont nombreux et varient selon le mandat confié au coiffeur";
+  const { text } = data;
   return (
     <>
       <section
@@ -20,12 +24,18 @@ function About() {
               </div>
               <div className="about-description">
                 <p>
-                  Un coiffeur ou une coiffeuse est une personne formée pour
-                  couper et entretenir les cheveux. Elle peut travailler dans un
-                  salon de coiffure, à son domicile ou chez son client. Les
-                  types de coiffures, les techniques et les outils employés sont
-                  nombreux et varient selon le mandat confié au coiffeur.
+                  {/* {showMore ? text : `${text.substring(0, 3)}`} */}
+            
+                  {showMore
+                    ? "Un coiffeur ou une coiffeuse est une personne formée pour couper et entretenir les cheveux. "
+                    : " Elle peut travailler dans un salon de coiffure, à son domicile ou chez son client. Lestypes de coiffures,les techniques et les outils employés sont nombreux et varient selon le mandat confié au coiffeur. . . "}
                 </p>
+                <button
+                    className="btn"
+                    onClick={() => setShowMore(!showMore)}
+                  >
+                  Montre plus
+                  </button>
               </div>
             </div>
           </div>

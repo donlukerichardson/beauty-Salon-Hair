@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function Testimonials() {
   return (
     <>
-     <section className="testimonials">
+      <section className="testimonials">
         <div className="testimonials-content">
           <div className="section-title">
             <h1>témoignages</h1>
@@ -12,7 +12,7 @@ function Testimonials() {
           <div className="testimonials-card">
             <div className="testimonials-item">
               <div className="testimonials-img">
-                <img src="img/testimonials/testimonials1.png" alt=''/>
+                <img src="img/testimonials/testimonials1.png" alt="" />
               </div>
               <div className="testimonials-box">
                 <div className="testimonials-name">
@@ -24,13 +24,17 @@ function Testimonials() {
                   <i className="fas fa-star" />
                 </div>
                 <div className="testimonials-description">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor earum culpa eius, libero reprehenderit maiores.</p>
+                  <p>
+                    Un salon de coiffure a ouvert dans notre quartier il y a
+                    quelques mois. J’y suis allée hier pour la première fois
+                    parce que je voulais une jolie coiffure pour une soirée.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="testimonials-item">
               <div className="testimonials-img">
-                <img src="img/testimonials/testimonials2.png" alt=''/>
+                <img src="img/testimonials/testimonials2.png" alt="" />
               </div>
               <div className="testimonials-box">
                 <div className="testimonials-name">
@@ -42,13 +46,17 @@ function Testimonials() {
                   <i className="fas fa-star" />
                 </div>
                 <div className="testimonials-description">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor earum culpa eius, libero reprehenderit maiores.</p>
+                  <p>
+                    Un salon de coiffure a ouvert dans notre quartier il y a
+                    quelques mois. J’y suis allée hier pour la première fois
+                    parce que je voulais une jolie coiffure pour une soirée.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="testimonials-item">
               <div className="testimonials-img">
-                <img src="img/testimonials/testimonials1.png" alt=''/>
+                <img src="img/testimonials/testimonials1.png" alt="" />
               </div>
               <div className="testimonials-box">
                 <div className="testimonials-name">
@@ -60,13 +68,17 @@ function Testimonials() {
                   <i className="fas fa-star" />
                 </div>
                 <div className="testimonials-description">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor earum culpa eius, libero reprehenderit maiores.</p>
+                  <p>
+                    Un salon de coiffure a ouvert dans notre quartier il y a
+                    quelques mois. J’y suis allée hier pour la première fois
+                    parce que je voulais une jolie coiffure pour une soirée.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="testimonials-item">
               <div className="testimonials-img">
-                <img src="img/testimonials/testimonials2.png" alt=''/>
+                <img src="img/testimonials/testimonials2.png" alt="" />
               </div>
               <div className="testimonials-box">
                 <div className="testimonials-name">
@@ -78,7 +90,11 @@ function Testimonials() {
                   <i className="fas fa-star" />
                 </div>
                 <div className="testimonials-description">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor earum culpa eius, libero reprehenderit maiores.</p>
+                  <p>
+                    Un salon de coiffure a ouvert dans notre quartier il y a
+                    quelques mois. J’y suis allée hier pour la première fois
+                    parce que je voulais une jolie coiffure pour une soirée.
+                  </p>
                 </div>
               </div>
             </div>
@@ -86,7 +102,7 @@ function Testimonials() {
         </div>
       </section>
     </>
-  )
+  );
 }
 
-export default Testimonials
+export default Testimonials;

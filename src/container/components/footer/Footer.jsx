@@ -6,7 +6,7 @@ function Footer() {
           <footer className="footer" id="contact">
         <div className="footer-list">
           <div className="footer-data">
-            <h1><a href><img src="img/logo.svg" alt=''/></a></h1>
+            <img src="img/logo/logorh.png" alt='' style={{width:"100%"}}/>
             <div className="footer-data-social">
               <a href><i className="fab fa-facebook" /></a>
               <a href><i className="fab fa-instagram" /></a>
