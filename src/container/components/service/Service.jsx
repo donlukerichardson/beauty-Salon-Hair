@@ -21,7 +21,7 @@ function Service() {
             <div className="box">
               <div className="inner">
                 <img src="/img/services/pedicure.png" />
-                <p>Manucure / Pédicure</p>
+                <p>Pédicure</p>
               </div>
             </div>
             <div className="box">
@@ -45,7 +45,7 @@ function Service() {
             <div className="box">
               <div className="inner">
                 <img src="/img/services/eyebrow design.png" />
-                <p>Soins Visage</p>
+                <p>épilation sourcil</p>
               </div>
             </div>
             <div className="box">

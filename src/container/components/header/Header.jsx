@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function Header() {
-  // const [isMobile, setIsMobile] = useState(false);
-  const toggleMenu =(e)=> {
-    e.target.parentElement.previousSibling.classList.toggle("show-nav");
-  }
+   const [isMobile, setIsMobile] = useState(false);
+  // const toggleMenu =(e)=> {
+  //   e.target.parentElement.previousSibling.classList.toggle("show-nav");
+  // }
   return (
     <>
       <header className="header" id="header">
@@ -18,7 +18,8 @@ function Header() {
               onClick={() => setIsMobile(false)}
             > */}
                <ul
-              className= "nav-list">
+              className= {isMobile ? "nav-menu" : "nav-list"}
+              onClick={() => setIsMobile(false)}>
               <li>
                 <a href="#accueil" className="nav-link active">
                   Accueil
@@ -50,7 +51,7 @@ function Header() {
                 </a>
               </li>
             </ul>
-            {/* <button className="mobile-menu-icon" 
+            <button className="mobile-menu-icon" 
             onClick={()=> setIsMobile(!isMobile)}
             >
               {isMobile ? (
@@ -58,11 +59,15 @@ function Header() {
               ) : (
                 <i className="fas fa-bars"></i>
               )}
-            </button> */}
+            </button>
           </nav>
-          <div className="nav-toggle" id="nav-toggle">
+          {/* <div className="nav-toggle" id="nav-toggle">
+          {isMobile ? (  
+          <i className="fas fa-times" onClick={toggleMenu}></i>
+               ) : (
             <i className="fas fa-bars" onClick={toggleMenu} />
-          </div>
+            )}
+          </div> */}
         </div>
       </header>
     </>

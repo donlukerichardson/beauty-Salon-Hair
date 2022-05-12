@@ -629,7 +629,7 @@ position: relative;
         position: absolute;
         top: 0;
         right: 0;
-        width: 0;
+        /* width: 0; */
         height: 100vh;
         background-color: var(--main-color);
         font-size: var(--h2-font-size);
@@ -713,7 +713,7 @@ position: relative;
     display: none;
 }
 
-/* @media screen and (max-width: 780px){
+@media screen and (max-width: 780px){
     .nav-menu .nav-list {
         display: none;
     }
@@ -740,14 +740,14 @@ position: relative;
         position: absolute;
         font-size: 30px;
         color: black;
-     background-color: #e0828c; 
         border: none;
         outline: none;
         top:15px;
         right: 25px;
+        background:none;
        }
 
-} */
+}
 
 
 
