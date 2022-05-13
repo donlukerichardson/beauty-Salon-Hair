@@ -27,8 +27,8 @@ function About() {
                   {/* {showMore ? text : `${text.substring(0, 3)}`} */}
             
                   {showMore
-                    ? "Un coiffeur ou une coiffeuse est une personne formée pour couper et entretenir les cheveux. "
-                    : " Elle peut travailler dans un salon de coiffure, à son domicile ou chez son client. Lestypes de coiffures,les techniques et les outils employés sont nombreux et varient selon le mandat confié au coiffeur. . . "}
+                    ? "Lestypes de coiffures,les techniques et les outils employés sont nombreux et varient selon le mandat confié au coiffeur un coiffeur ou une coiffeuse est une personne formée pour couper et entretenir les cheveux. "
+                    : " Elle peut travailler dans un salon de coiffure, à son domicile ou chez son client. . . . "}
                 </p>
                 <button
                 style={{marginBottom:"20px"}}

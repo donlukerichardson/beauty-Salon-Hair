@@ -35,11 +35,11 @@ function Header() {
                   Service
                 </a>
               </li>
-              {/* <li>
+              <li>
                 <a href="#package" className="nav-link">
-                  Emballer
+                  Forfaits
                 </a>
-              </li> */}
+              </li>
               <li>
                 <a href="#gallery" className="nav-link">
                   Galerie
