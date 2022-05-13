@@ -31,7 +31,8 @@ function About() {
                     : " Elle peut travailler dans un salon de coiffure, à son domicile ou chez son client. Lestypes de coiffures,les techniques et les outils employés sont nombreux et varient selon le mandat confié au coiffeur. . . "}
                 </p>
                 <button
-                    className="btn"
+                style={{marginBottom:"20px"}}
+                    className="btn "
                     onClick={() => setShowMore(!showMore)}
                   >
                   Montre plus
