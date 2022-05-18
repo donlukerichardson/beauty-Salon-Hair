@@ -1,30 +1,44 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
   return (
     <>
-          <footer className="footer" id="contact">
+      <footer className="footer" id="contact">
         <div className="footer-list">
           <div className="footer-data">
-            <img src="img/logo/logorh.png" alt='' style={{width:"100%"}}/>
+            <img src="img/service/logo.png" alt="" style={{ width: "100%" }} />
             <div className="footer-data-social">
-              <a href><i className="fab fa-facebook" /></a>
-              <a href><i className="fab fa-instagram" /></a>
-              <a href><i className="fab fa-twitter" /></a>
+              <a href="#facebook">
+                <i className="fab fa-facebook" />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/lamassati_beauty_center/"
+              >
+                <i className="fab fa-instagram" />
+              </a>
+              <a href="http://wa.me/++212700893408" target="_blank">
+                <i className="fab fa-whatsapp" />
+              </a>
             </div>
           </div>
           <div className="footer-data">
             <h2>adresse</h2>
-            <p>Centre Ville - St 26<br /> Fés - Maroc</p>
+            <p>
+              N'54,Rue Ain Snam Boulvard Al Alawiyin - Sector 5 Hay Nahda <br />{" "}
+              Karia - Salé
+            </p>
           </div>
           <div className="footer-data">
             <h2>Nous avons ouvert</h2>
-            <p>Lundi à vendredi <br /> De 09h00 à 18h00</p>
+            <p>
+              Chaque Jours
+              <br /> De 09h00 à 22h00
+            </p>
           </div>
           <div className="footer-data">
             <h2>Contacter</h2>
-            <p>+212 688727657</p>
-            {/* <p>(20) 4444-555-666</p> */}
+            <p>+212 700893408</p>
           </div>
         </div>
         <div className="copy">
@@ -33,7 +47,7 @@ function Footer() {
         </div>
       </footer>
     </>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

@@ -14,49 +14,49 @@ function Service() {
           <div className="services-content-description">
             <div className="box">
               <div className="inner">
-                <img src="/img/services/manicure.png" />
+                <img src="/img/service/manicure.png" />
                 <p>Manucure</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/pedicure.png" />
+                <img src="/img/service/pedicure.png" />
                 <p>Pédicure</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/makeup.png" />
+                <img src="/img/service/makeup.png" />
                 <p>Maquillage</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/hairstyle.png" />
+                <img src="/img/service/hairstyle.png" />
                 <p>Pack Mariée</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/haircut.png" />
+                <img src="/img/service/haircut.png" />
                 <p>Coiffure</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/eyebrow design.png" />
-                <p>épilation sourcil</p>
+                <img src="/img/service/soinvisage.PNG" />
+                <p>soin visage</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/waxing.png" />
+                <img src="/img/service/waxing.png" />
                 <p>épilation</p>
               </div>
             </div>
             <div className="box">
               <div className="inner">
-                <img src="/img/services/skin cleansing.png" />
+                <img src="/img/service/skin cleansing.png" />
                 <p>Cheveux</p>
               </div>
             </div>

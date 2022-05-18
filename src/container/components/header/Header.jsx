@@ -10,7 +10,7 @@ function Header() {
       <header className="header" id="header">
         <div className="navbar">
           <div className="logo">
-            <img src="/img/logo/logorh.png" alt="" />
+            <img src="/img/service/logo.png" alt="" />
           </div>
           <nav className="nav-menu" id="nav-menu navbarNavAltMarkup">
             {/* <ul

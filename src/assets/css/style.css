@@ -4,8 +4,8 @@
 :root {
   --header-height: 5rem;
 
-  --main-color: #f7e6df;
-  --first-color: #75492b;
+  --main-color: #EADBD7;
+  --first-color: #512284;
   --second-color: #dfd6a7;
   --white-color: #fff;
   --black-color: #151515;
@@ -125,7 +125,7 @@ body {
 .logo {
   max-width: 200px;
 }
-.logo img {
+.logo img  {
   width: 100%;
 }
 .nav-menu .nav-list {
@@ -324,7 +324,7 @@ body {
   font-size: var(--h3-font-size);
   font-weight: 800;
   text-transform: capitalize;
-  color: var(--first-color);
+  color:#512284;
   padding: 10px;
   position: relative;
 }
@@ -336,6 +336,7 @@ body {
   height: 0;
   box-sizing: border-box;
   transition: all 0.8s ease;
+  
 }
 .services-content-description .box .inner::before {
   bottom: 0;
@@ -767,3 +768,291 @@ body {
         margin-bottom: 1.5rem;
     }
 } */
+
+.borderContact{
+  display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: center;
+    border: 2px solid var(--first-color);
+    border-radius: 30px;
+    padding: 1rem;
+}
+.about .react-email-form {
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 30px;
+  background: #fff;
+}
+.about .react-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+.about .react-email-form .error-message br + br {
+  margin-top: 25px;
+}
+.about .react-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+.about .react-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+.about .react-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+.about .react-email-form input,
+.about .react-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.about .react-email-form input:focus,
+.about .react-email-form textarea:focus,
+.about .react-email-form select:focus{
+  border-color: #b03561;
+}
+.form-select:focus{
+  box-shadow: none ;
+}
+.about .react-email-form input {
+  padding: 10px 15px;
+}
+.about .react-email-form textarea {
+  padding: 12px 15px;
+}
+.about .react-email-form button[type="submit"] {
+  background: #F0047F;
+  border: 0;
+  padding: 10px 30px;
+  border-radius: 4px;
+  color: #fff;
+  transition: 0.4s;
+}
+.about .react-email-form button[type="submit"]:hover {
+  background: #da4378;
+}
+.select.form-select{
+  box-shadow: none;
+    font-size: 14px;
+    border-radius: 4px
+}
+/*--------------------------------------------------------------
+# Menu Section
+--------------------------------------------------------------*/
+.nav-tabs .nav-link{
+  font-family: var(--font-cursive);
+  font-size: 30px;
+  font-weight: 400;
+  color:#F0047F;
+}
+.parentmenu .menu .section-title h2{
+  font-family: var(--font-cursive);
+  font-size: 60px;
+  color: var(--first-color);
+}
+.menu{
+  margin-top: 50px;
+}
+.menu #menu-flters {
+  padding: 0;
+  margin: 0 auto 0 auto;
+  list-style: none;
+  text-align: center;
+  border-radius: 50px;
+}
+.menu #menu-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 8px 16px 10px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #444444;
+  margin: 0 3px 10px 3px;
+  transition: all ease-in-out 0.3s;
+  background: #fff;
+  border: 2px solid var(--first-color);
+  border-radius: 50px;
+}
+.menu #menu-flters li:hover, .menu #menu-flters li.filter-active {
+  color: #fff;
+  background:var(--first-color);
+}
+.menu #menu-flters li:last-child {
+  margin-right: 0;
+}
+.menu .menu-content {
+  margin-top: 30px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.menu .menu-content::after {
+  content: "......................................................................" "...................................................................." "....................................................................";
+  position: absolute;
+  left: 20px;
+  right: 0;
+  top: -4px;
+  z-index: 1;
+  color: #dad8d4;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.menu .menu-content a {
+  padding-right: 10px;
+  background: #fff;
+  position: relative;
+  z-index: 3;
+  font-weight: 700;
+  text-decoration: none;
+  color:var(--first-color);
+}
+.menu .menu-content span {
+  background: #fff;
+  position: relative;
+  z-index: 3;
+  padding: 0 10px;
+  font-weight: 600;
+}
+.menu .menu-ingredients {
+  font-style: italic;
+  font-size: 14px;
+  font-family: "Comic Neue", sans-serif;
+  color: #948c81;
+}
+
+/*--------------------------------------------------------------
+  # Features Section
+  --------------------------------------------------------------*/
+  .features .nav-tabs {
+    border: 0;
+    background: #f6f9fd;
+  }
+  .features .nav-link {
+    border: 0;
+    padding: 25px 20px;
+    color: var(--color-secondary);
+    box-shadow: 5px 5px 25px rgba(var(--color-secondary-rgb), 0.15);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0s;
+    cursor: pointer;
+    height: 100%;
+  }
+  .features .nav-link .iconfeatures {
+    line-height: 1;
+    font-size: 50px;
+    color: #b03561;
+  }
+  .features .nav-link h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+    color: var(--color-secondary);
+  }
+  .features .nav-link:hover {
+    color: var(--color-primary);
+  }
+  .features .nav-link.active {
+    transition: 0.3s;
+    background: var(--color-secondary)
+      linear-gradient(
+        rgba(var(--color-primary-rgb), 0.95),
+        rgba(var(--color-primary-rgb), 0.6)
+      );
+    border-color: var(--color-primary);
+  }
+  .features .nav-link.active h4 {
+    color: var(--color-white);
+  }
+  .features .nav-link.active i {
+    color: var(--color-white) !important;
+  }
+  .features .tab-content {
+    margin-top: 30px;
+  }
+  .features .tab-pane.active {
+    -webkit-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+  }
+  .features .tab-pane h3 {
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--color-secondary);
+  }
+  .features .tab-pane p {
+    font-size: 19px;
+  }
+  .features .tab-pane ul {
+    list-style: none;
+    padding: 0;
+  }
+  .features .tab-pane ul li {
+    padding-bottom: 10px;
+    font-size: 24px;
+    color: #da4378;
+  }
+  .features .tab-pane ul .online {
+    font-size: 24px;
+    margin-right: 4px;
+    color: green;
+  }
+  .features .tab-pane ul .strongonline {
+    font-size: 25px;
+  }
+  .features .tab-pane .clique {
+    cursor: pointer;
+  }
+  .features .tab-pane .icononline {
+    font-size: 75px;
+    color: #b03561;
+  }
+  .features .tab-pane ul i {
+    font-size: 24px;
+    margin-right: 4px;
+    color: var(--color-primary);
+  }
+  .features .tab-pane p:last-child {
+    margin-bottom: 0;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @media (max-width: 560px) {
+    #about > div > div.about-detail > div > div > div.about-img > img{
+      display: none;
+    }
+    .about .react-email-form{
+      margin-right: 25px;
+    }
+  }

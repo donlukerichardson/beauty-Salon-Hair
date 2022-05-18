@@ -6,7 +6,7 @@ function Home() {
       <section className="home">
         <div className="container">
           <div className="home-img">
-            <img src="/img/home-img.png" alt="" />
+            <img src="/img/home-image.PNG" alt="" />
           </div>
 
           <div className="home-content">
