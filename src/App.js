@@ -22,7 +22,7 @@ function App() {
       <Menuu/>
       <Appointment/>
       <Gallery/>
-      <Testimonials/>
+      {/* <Testimonials/> */}
       <Footer/>
     </div>
   );

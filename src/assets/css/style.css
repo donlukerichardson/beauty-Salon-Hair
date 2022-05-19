@@ -1053,6 +1053,10 @@ body {
       display: none;
     }
     .about .react-email-form{
-      margin-right: 25px;
+      /* width: 96%; */
+      margin-right: 28px;
+    }
+    #contact > div.footer-list > div:nth-child(1) > img{
+      width: 70% !important;
     }
   }

@@ -10,7 +10,7 @@ function Menuu() {
             <h2>
               Check our tasty Menu
             </h2>
-          </div>
+          </div> 
           <div className="row">
             <div className="col-lg-12 d-flex justify-content-center mt-2 mb-3">
               <ul className="nav nav-tabs active">

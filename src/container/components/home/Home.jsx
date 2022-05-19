@@ -8,12 +8,11 @@ function Home() {
           <div className="home-img">
             <img src="/img/home-image.PNG" alt="" />
           </div>
-
           <div className="home-content">
             <h1>
               Bienvenue
               <br />
-              <span>dans Salon Rihana</span>
+              <span>dans Salon Lamasati</span>
             </h1>
             <h1>Votre grand jour dans le style</h1>
             <p>
