@@ -179,7 +179,7 @@ function Appointment() {
                 <div className="about-img">
                   <img src="/img/coif.jpg" alt="" />
                 </div>
-                <div className=" col-lg-12">
+                <div className="col-md-12">
                   <form
                     onSubmit={handleSubmitContact}
                     className="react-email-form"
