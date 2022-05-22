@@ -185,7 +185,7 @@ function Appointment() {
                     className="react-email-form"
                   >
                     <div className="row mt-3">
-                      <div className="col-md-12 form-group mt-3 mt-md-0">
+                      <div className="col-md-12 form-group pt-3 mt-md-0">
                         <input
                           type="text"
                           name="firstname"
@@ -260,11 +260,11 @@ function Appointment() {
                           className="form-control"
                           name="date"
                           id="date"
-                          placeholder="E-mail *"
+                          // placeholder="E-mail *"
                           value={date}
                           onChange={(e) => handleInputChange(e)}
-                          min="2022-05-20"
-                          max="2022-06-20"
+                          // min="2022-05-20"
+                          // max="2022-06-20"
                           // onKeyUp={() => isEmpty()}
                         />
                         {inputError.date !== "" && (
@@ -284,7 +284,7 @@ function Appointment() {
                           // onKeyUp={() => isEmpty()}
                         >
                           <option selected="">
-                            Choisir le temps de render vous *
+                            Le temps de render-vous *
                           </option>
                           <option value="9:00">9:00</option>
                           <option value="10:00">10:00</option>

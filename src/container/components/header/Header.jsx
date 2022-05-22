@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Header() {
-   const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   // const toggleMenu =(e)=> {
   //   e.target.parentElement.previousSibling.classList.toggle("show-nav");
   // }
@@ -12,14 +12,24 @@ function Header() {
           <div className="logo">
             <img src="/img/service/logo.png" alt="" />
           </div>
-          <nav className="nav-menu" id="nav-menu navbarNavAltMarkup">
+          <nav
+            style={{
+              backgroundColor: isMobile ? "#EADBD7" : "transparent",
+              // display: isMobile ? "" : "none",
+              minHeight: isMobile ? "100vh" : "0vh",
+              boxShadow: isMobile ? "0 0 5px rgb(0 0 0 / 40%)" : "none",
+            }}
+            className="nav-menu"
+            id="nav-menu navbarNavAltMarkup"
+          >
             {/* <ul
               className={isMobile ? "nav-links-mobile" : "nav-list"}
               onClick={() => setIsMobile(false)}
             > */}
-               <ul
-              className= {isMobile ? "nav-menu" : "nav-list"}
-              onClick={() => setIsMobile(false)}>
+            <ul
+              className={isMobile ? "nav-menu" : "nav-list"}
+              onClick={() => setIsMobile(false)}
+            >
               <li>
                 <a href="#accueil" className="nav-link active">
                   Accueil
@@ -42,6 +52,11 @@ function Header() {
               </li>
               <li>
                 <a href="#gallery" className="nav-link">
+                  Prenez rendez-vous
+                </a>
+              </li>
+              <li>
+                <a href="#gallery" className="nav-link">
                   Galerie
                 </a>
               </li>
@@ -51,8 +66,9 @@ function Header() {
                 </a>
               </li>
             </ul>
-            <button className="mobile-menu-icon" 
-            onClick={()=> setIsMobile(!isMobile)}
+            <button
+              className="mobile-menu-icon"
+              onClick={() => setIsMobile(!isMobile)}
             >
               {isMobile ? (
                 <i className="fas fa-times"></i>

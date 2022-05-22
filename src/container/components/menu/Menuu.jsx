@@ -28,20 +28,7 @@ function Menuu() {
                     Coiffure
                   </button>
                 </li>
-                <li className="nav-item" role="presentation">
-                  <button
-                    className="nav-link"
-                    data-bs-toggle="tab"
-                    id="soin-tab"
-                    type="button"
-                    data-bs-target="#soin"
-                    role="tab"
-                    aria-controls="soin"
-                    aria-selected="true"
-                  >
-                    Soin Visage
-                  </button>
-                </li>
+               
                 <li className="nav-item" role="presentation">
                   <button
                     className="nav-link"
@@ -74,6 +61,20 @@ function Menuu() {
                   <button
                     className="nav-link"
                     data-bs-toggle="tab"
+                    id="manucure-tab"
+                    type="button"
+                    data-bs-target="#manucure"
+                    role="tab"
+                    aria-controls="manucure"
+                    aria-selected="true"
+                  >
+                    Manucure
+                  </button>
+                </li>
+                <li className="nav-item" role="presentation">
+                  <button
+                    className="nav-link"
+                    data-bs-toggle="tab"
                     id="maquillage-tab"
                     type="button"
                     data-bs-target="#maquillage"
@@ -84,6 +85,7 @@ function Menuu() {
                     Maquillage
                   </button>
                 </li>
+
                 <li className="nav-item" role="presentation">
                   <button
                     className="nav-link"
@@ -102,16 +104,17 @@ function Menuu() {
                   <button
                     className="nav-link"
                     data-bs-toggle="tab"
-                    id="manucure-tab"
+                    id="soin-tab"
                     type="button"
-                    data-bs-target="#manucure"
+                    data-bs-target="#soin"
                     role="tab"
-                    aria-controls="manucure"
+                    aria-controls="soin"
                     aria-selected="true"
                   >
-                    Manucure
+                    Soin Visage
                   </button>
                 </li>
+               
               </ul>
             </div>
           </div>
