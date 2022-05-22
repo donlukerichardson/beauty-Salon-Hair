@@ -3,6 +3,7 @@ import { createAppointment } from "../../../axios/service/appointment";
 import { sendContact } from "../../../telegrame/bot";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import moment from "moment";
 function Appointment() {
   const [inputError, setInputError] = useState({
     firstname: "",
@@ -125,12 +126,15 @@ function Appointment() {
       .then(({ data }) => {
         if (!data.err) {
           toast.success("message succes");
-          const message = `new contact \n
-          firstname : ${newData.firstname} \n
-          lastname : ${newData.lastname} \n
-          email : ${newData.email} \n 
-          phone : ${newData.phone} \n
-          date : ${newData.date}`;
+          const message = `Bonjour Lamassati\nIl ya un rendez-vous avec <b>${
+            newData.firstname
+          } ${newData.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
+            newData.date
+          ).format("DD/MM/YYYY")}\n<b>❄ Hours:</b> ${moment(
+            newData.date
+          ).format("HH:mm")}\n<b>❄ Email:</b> ${
+            newData.email
+          }\n<b>❄ Phone:</b> ${newData.phone}`;
           sendContact(message);
         } else {
           console.log(data.msg);

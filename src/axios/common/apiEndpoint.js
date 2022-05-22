@@ -1,9 +1,9 @@
 const Host = {
-    ROOT: "http://localhost:3000",
+    ROOT: "https://back-salon.herokuapp.com",
     BACKEND:
       !process.env.NODE_ENV || process.env.NODE_ENV === "development"
-        ? "http://localhost:3001"
-        : "http://localhost:3001",
+        ? "https://back-salon.herokuapp.com"
+        : "https://back-salon.herokuapp.com",
     PREFIX: "/v1/api",
   };
   const ApiEndpoints = {
