@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createAppointment } from "../../../axios/service/appointment";
 import { sendContact } from "../../../telegrame/bot";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 function Appointment() {
   const [inputError, setInputError] = useState({
@@ -20,7 +20,7 @@ function Appointment() {
     date: "",
     time: "",
   });
-  
+
   // const enabled = formData.length > 0;
   const [stuff, setStuff] = useState({
     loader: true,
@@ -29,7 +29,13 @@ function Appointment() {
     successMessage: "",
   });
   const { firstname, lastname, email, phone, date, time } = formData;
-  const enabled = firstname.length > 0 && lastname.length > 0 && email.length > 0 && phone.length > 0 && date.length > 0 && time.length > 0 ;
+  const enabled =
+    firstname.length > 0 &&
+    lastname.length > 0 &&
+    email.length > 0 &&
+    phone.length > 0 &&
+    date.length > 0 &&
+    time.length > 0;
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // if (e.target.value.length >= 5) {
@@ -118,7 +124,7 @@ function Appointment() {
     createAppointment(newData)
       .then(({ data }) => {
         if (!data.err) {
-          toast.success("message succes")
+          toast.success("message succes");
           const message = `new contact \n
           firstname : ${newData.firstname} \n
           lastname : ${newData.lastname} \n
@@ -126,7 +132,6 @@ function Appointment() {
           phone : ${newData.phone} \n
           date : ${newData.date}`;
           sendContact(message);
-         
         } else {
           console.log(data.msg);
           setStuff({
@@ -134,7 +139,7 @@ function Appointment() {
             successMessage: "",
             errorMessage: data.msg[0],
           });
-          toast.error("message no succes")
+          toast.error("message no succes");
         }
       })
       .catch((err) => {
@@ -168,144 +173,134 @@ function Appointment() {
         style={{ backgroundImage: `url(./img/arabesque-left-bottom.svg)` }}
       >
         <div className="container">
-          <div className="section-title">
-            <h1>Prenez-rendez-vous</h1>
-          </div>
-          <div>
-      </div>
+          <div></div>
           <div className="about-detail">
             <div className="">
               <div className="borderContact">
                 <div className="about-img">
                   <img src="/img/coif.jpg" alt="" />
                 </div>
-                <div className="col-md-12">
+                <div>
                   <form
                     onSubmit={handleSubmitContact}
-                    className="react-email-form"
+                    className="react-email-form row"
                   >
-                    <div className="row mt-3">
-                      <div className="col-md-12 form-group pt-3 mt-md-0">
-                        <input
-                          type="text"
-                          name="firstname"
-                          className="form-control"
-                          id="firstname"
-                          placeholder="Nom *"
-                          value={firstname}
-                          onChange={(e) => handleInputChange(e)}
-                          // onKeyUp={() => isEmpty()}
-                        />
-                        {inputError.firstname !== "" && (
-                          <div className="error">{inputError.firstname}</div>
-                        )}
-                      </div>
+                    <div className="section-title col-md-12">
+                      <h1>Prenez-rendez-vous</h1>
                     </div>
-
-                    <div className="row mt-3">
-                      <div className="col-md-12 form-group mt-3 mt-md-0">
-                        <input
-                          type="text"
-                          name="lastname"
-                          className="form-control"
-                          id="lastname"
-                          placeholder="Prénom *"
-                          value={lastname}
-                          onChange={(e) => handleInputChange(e)}
-                          // onKeyUp={() => isEmpty()}
-                        />
-                        {inputError.lastname !== "" && (
-                          <div className="error">{inputError.lastname}</div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="row mt-3">
-                      <div className="col-md-12 form-group mt-3 mt-md-0">
-                        <input
-                          type="email"
-                          className="form-control"
-                          name="email"
-                          id="email"
-                          placeholder="E-mail *"
-                          value={email}
-                          onChange={(e) => handleInputChange(e)}
-                          // onKeyUp={() => isEmpty()}
-                        />
-                        {inputError.email !== "" && (
-                          <div className="error">{inputError.email}</div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="row mt-3">
-                      <div className="col-md-12 form-group mt-3 mt-md-0">
-                        <input
-                          type="number"
-                          className="form-control"
-                          name="phone"
-                          id="phone"
-                          placeholder="Télephone *"
-                          value={phone}
-                          onChange={(e) => handleInputChange(e)}
-                          // onKeyUp={() => isEmpty()}
-                        />
-                        {inputError.phone !== "" && (
-                          <div className="error">{inputError.phone}</div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="row mt-3">
-                      <div className="col-md-12 form-group mt-3 mt-md-0">
-                        <input
-                          type="date"
-                          className="form-control"
-                          name="date"
-                          id="date"
-                          // placeholder="E-mail *"
-                          value={date}
-                          onChange={(e) => handleInputChange(e)}
-                          // min="2022-05-20"
-                          // max="2022-06-20"
-                          // onKeyUp={() => isEmpty()}
-                        />
-                        {inputError.date !== "" && (
-                          <div className="error">{inputError.date}</div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="row mt-3">
-                      <div className="col-md-12 form-group mt-3 mt-md-0">
-                        <select
-                          className="form-select lg"
-                          aria-label="Default select example"
-                          name="time"
-                          id="time"
-                          value={time}
-                          onChange={(e) => handleInputChange(e)}
-                          // onKeyUp={() => isEmpty()}
-                        >
-                          <option selected="">
-                            Le temps de render-vous *
-                          </option>
-                          <option value="9:00">9:00</option>
-                          <option value="10:00">10:00</option>
-                          <option value="11:00">11:00</option>
-                          <option value="12:00">12:00</option>
-                          <option value="13:00">13:00</option>
-                          <option value="14:00">14:00</option>
-                          <option value="15:00">15:00</option>
-                          <option value="16:00">16:00</option>
-                          <option value="17:00">17:00</option>
-                          <option value="18:00">18:00</option>
-                          <option value="19:00">19:00</option>
-                          <option value="20:00">20:00</option>
-                          <option value="21:00">21:00</option>
-                          <option value="22:00">22:00</option>
-                        </select>
-                      </div>
-                      {inputError.time !== "" && (
-                        <div className="error">{inputError.time}</div>
+                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-md-0">
+                      <input
+                        type="text"
+                        name="firstname"
+                        className="form-control"
+                        id="firstname"
+                        placeholder="Nom *"
+                        value={firstname}
+                        onChange={(e) => handleInputChange(e)}
+                        // onKeyUp={() => isEmpty()}
+                      />
+                      {inputError.firstname !== "" && (
+                        <div className="error">{inputError.firstname}</div>
                       )}
                     </div>
+
+                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                      <input
+                        type="text"
+                        name="lastname"
+                        className="form-control"
+                        id="lastname"
+                        placeholder="Prénom *"
+                        value={lastname}
+                        onChange={(e) => handleInputChange(e)}
+                        // onKeyUp={() => isEmpty()}
+                      />
+                      {inputError.lastname !== "" && (
+                        <div className="error">{inputError.lastname}</div>
+                      )}
+                    </div>
+
+                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                      <input
+                        type="email"
+                        className="form-control"
+                        name="email"
+                        id="email"
+                        placeholder="E-mail *"
+                        value={email}
+                        onChange={(e) => handleInputChange(e)}
+                        // onKeyUp={() => isEmpty()}
+                      />
+                      {inputError.email !== "" && (
+                        <div className="error">{inputError.email}</div>
+                      )}
+                    </div>
+
+                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                      <input
+                        type="number"
+                        className="form-control"
+                        name="phone"
+                        id="phone"
+                        placeholder="Télephone *"
+                        value={phone}
+                        onChange={(e) => handleInputChange(e)}
+                        // onKeyUp={() => isEmpty()}
+                      />
+                      {inputError.phone !== "" && (
+                        <div className="error">{inputError.phone}</div>
+                      )}
+                    </div>
+
+                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                      <input
+                        type="date"
+                        className="form-control"
+                        name="date"
+                        id="date"
+                        // placeholder="E-mail *"
+                        value={date}
+                        onChange={(e) => handleInputChange(e)}
+                        // min="2022-05-20"
+                        // max="2022-06-20"
+                        // onKeyUp={() => isEmpty()}
+                      />
+                      {inputError.date !== "" && (
+                        <div className="error">{inputError.date}</div>
+                      )}
+                    </div>
+
+                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                      <select
+                        className="form-select lg"
+                        aria-label="Default select example"
+                        name="time"
+                        id="time"
+                        value={time}
+                        onChange={(e) => handleInputChange(e)}
+                        // onKeyUp={() => isEmpty()}
+                      >
+                        <option selected="">Le temps de render-vous *</option>
+                        <option value="9:00">9:00</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                      </select>
+                    </div>
+                    {inputError.time !== "" && (
+                      <div className="error">{inputError.time}</div>
+                    )}
+
                     <button
                       id="btnEnvoyez"
                       type="submit"
