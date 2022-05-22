@@ -51,7 +51,7 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="nav-link">
+                <a href="#Rdv" className="nav-link">
                   Prenez rendez-vous
                 </a>
               </li>

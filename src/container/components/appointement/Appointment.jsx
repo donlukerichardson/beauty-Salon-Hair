@@ -164,7 +164,7 @@ function Appointment() {
     <>
       <section
         className="about"
-        id="about"
+        id="Rdv"
         style={{ backgroundImage: `url(./img/arabesque-left-bottom.svg)` }}
       >
         <div className="container">
