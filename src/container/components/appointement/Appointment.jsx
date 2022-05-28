@@ -4,7 +4,7 @@ import { sendContact } from "../../../telegrame/bot";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import moment from "moment";
-function Appointment() {
+function Appointment() { 
   const [inputError, setInputError] = useState({
     firstname: "",
     lastname: "",
