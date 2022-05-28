@@ -1,5 +1,5 @@
 const Host = {
-    ROOT: "http://localhost:3000",
+    ROOT: "https://back-salon.herokuapp.com",
     BACKEND:
       !process.env.NODE_ENV || process.env.NODE_ENV === "development"
         ? "https://back-salon.herokuapp.com"
