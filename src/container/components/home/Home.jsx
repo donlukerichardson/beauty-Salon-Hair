@@ -15,10 +15,7 @@ function Home() {
               <span>dans Salon Lamasati</span>
             </h1>
             <h1>Votre grand jour dans le style</h1>
-            <p>
-              Venez voir notre coin des mariées et profitez-en pour programmer
-              votre rendez-vous.
-            </p>
+      
             <a
               href="http://wa.me/+212680830141"
               target="_blank"
@@ -27,6 +24,15 @@ function Home() {
               <i className="fab fa-whatsapp" />
               Planifiez votre temps
             </a>
+           
+            {/* <a
+              href="http://wa.me/+212680830141"
+              target="_blank"
+              className="btn btn-outline"
+            >
+              <i className="fab fa-whatsapp" />
+              Planifiez votre temps
+            </a> */}
           </div>
         </div>
       </section>

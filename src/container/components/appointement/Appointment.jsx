@@ -1,53 +1,64 @@
-import React, { useState } from "react";
-import { createAppointment } from "../../../axios/service/appointment";
+import React, { useEffect, useState } from "react";
+import {
+  createAppointment,
+  getTimes,
+} from "../../../axios/service/appointment";
 import { sendContact } from "../../../telegrame/bot";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import moment from "moment";
-function Appointment() { 
+import { KeyboardDatePicker } from "@material-ui/pickers";
+
+function Appointment() {
+  const [myDate, setMyDate] = useState(new Date());
+  const [time, setTime] = useState("");
+  const [arrTime, setArrTime] = useState([]);
+  const [loader, setLoader] = useState(false);
+
   const [inputError, setInputError] = useState({
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
-    date: "",
-    time: "",
   });
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
-    date: "",
-    time: "",
   });
 
-  // const enabled = formData.length > 0;
-  const [stuff, setStuff] = useState({
-    loader: true,
-    disabled: true,
-    errorMessage: "",
-    successMessage: "",
-  });
-  const { firstname, lastname, email, phone, date, time } = formData;
+  const { firstname, lastname, email, phone } = formData;
   const enabled =
     firstname.length > 0 &&
     lastname.length > 0 &&
     email.length > 0 &&
-    phone.length > 0 &&
-    date.length > 0 &&
-    time.length > 0;
+    phone.length > 0;
+
+  const handeldatechange = (date) => {
+    setMyDate(date);
+    //  console.log(new Date(moment(date).format("MM/dd/yyyy")).toISOString());
+    // console.log(moment(date).format("MM/dd/yyyy"));
+    getTimes({
+      filter: JSON.stringify({ date: moment(date).format("YYYY-MM-DD") }),
+    })
+      .then(({ data }) => {
+        if (!data.err) {
+          setArrTime(data.msg);
+        } else {
+          const error = typeof data.msg === "string" ? data.msg : data.msg[0];
+          toast.error(error);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error("Une erreur");
+      });
+  };
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // if (e.target.value.length >= 5) {
-    //   setStuff({
-    //     disabled: false,
-    //   });
-    // } else {
-    //   setStuff({
-    //     disabled: true,
-    //   });
-    // }
+
     if (e.target.name === "email") {
       if (e.target.value.length <= 5) {
         setInputError({ ...inputError, email: "e-mail obligatoire!" });
@@ -77,55 +88,43 @@ function Appointment() {
       } else {
         setInputError({ ...inputError, phone: "" });
       }
-    } else if (e.target.name === "date") {
-      if (e.target.value.length <= 2) {
-        setInputError({ ...inputError, date: "la date obligatoire!" });
-      } else {
-        setInputError({ ...inputError, date: "" });
-      }
-    } else if (e.target.name === "time") {
-      if (e.target.value.length <= 2) {
-        setInputError({ ...inputError, time: "le temps obligatoire!" });
-      } else {
-        setInputError({ ...inputError, time: "" });
-      }
     }
   };
+
   const handleSubmitContact = (e) => {
     e.preventDefault();
-    setStuff({ ...stuff, loader: true });
+
     for (const input in inputError) {
       if (inputError[input] !== "") {
         toast.error("error");
         return;
       }
     }
+
+    if (time === "") {
+      toast.error("error");
+    }
+
     //  const newDate = new Date(date).getTimezoneOffset() + (1000 * 60 * 60)
     const newData = {
       ...formData,
-      date: new Date(
-        new Date(date).setHours(
-          new Date(date).getHours() + parseInt(time.substr(0, 2))
-        )
-      ),
+      date: moment(myDate).format("YYYY-MM-DD"),
+      time: time,
     };
-    setStuff({
-      loader: false,
-      successMessage: "Rndez-vous d'opération réussie.",
-      errorMessage: "",
-    });
-    setFormData({
-      firstname: "",
-      lastname: "",
-      email: "",
-      phone: "",
-      date: "",
-      time: "",
-    });
+
+    // setStuff({
+    //   loader: false,
+    //   successMessage: "Rndez-vous d'opération réussie.",
+    //   errorMessage: "",
+    // });
+
+    setLoader(true);
+
     createAppointment(newData)
       .then(({ data }) => {
         if (!data.err) {
           toast.success("message succes");
+          window.location.reload();
           const message = `Bonjour Lamassati\nIl ya un rendez-vous avec <b>${
             newData.firstname
           } ${newData.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
@@ -136,39 +135,34 @@ function Appointment() {
             newData.email
           }\n<b>❄ Phone:</b> ${newData.phone}`;
           sendContact(message);
+
+          setFormData({
+            firstname: "",
+            lastname: "",
+            email: "",
+            phone: "",
+          });
+
+          setLoader(false);
         } else {
           console.log(data.msg);
-          setStuff({
-            loader: false,
-            successMessage: "",
-            errorMessage: data.msg[0],
-          });
-          toast.error("message no succes");
+          const error = typeof data.msg === "string" ? data.msg : data.msg[0];
+
+          toast.error(error);
+          setLoader(false);
         }
       })
       .catch((err) => {
         console.log(err);
         toast.error("Une erreur Veuillez réessayer");
+        setLoader(false);
       });
   };
-  // const isEmpty = () => {
-  //   let firstname = document.getElementById("firstname").value;
-  //   let lastname = document.getElementById("lastname").value;
-  //   let email = document.getElementById("email").value;
-  //   let phone = document.getElementById("phone").value;
-  //   let date = document.getElementById("date").value;
-  //   let time = document.getElementById("time").value;
-  //   if (
-  //     firstname === "" &&
-  //     lastname === "" &&
-  //     email === "" &&
-  //     phone === "" &&
-  //     date === "" &&
-  //     time === ""
-  //   ) {
-  //     document.getElementById("btnEnvoyez").removeAttribute("disabled");
-  //   }
-  // };
+
+  useEffect(() => {
+    handeldatechange(new Date());
+  }, []);
+
   return (
     <>
       <section
@@ -177,7 +171,6 @@ function Appointment() {
         style={{ backgroundImage: `url(./img/arabesque-left-bottom.svg)` }}
       >
         <div className="container">
-          <div></div>
           <div className="about-detail">
             <div className="">
               <div className="borderContact">
@@ -185,78 +178,214 @@ function Appointment() {
                   <img src="/img/coif.jpg" alt="" />
                 </div>
                 <div>
-                  <form
-                    onSubmit={handleSubmitContact}
-                    className="react-email-form row"
-                  >
-                    <div className="section-title col-md-12">
-                      <h1>Prenez-rendez-vous</h1>
-                    </div>
-                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-md-0">
-                      <input
-                        type="text"
-                        name="firstname"
-                        className="form-control"
-                        id="firstname"
-                        placeholder="Nom *"
-                        value={firstname}
-                        onChange={(e) => handleInputChange(e)}
-                        // onKeyUp={() => isEmpty()}
+                  <div className="section-title col-md-12">
+                    <h1>Prenez rendez-vous</h1>
+                    <p>
+                      la list les hours possible prenez un rendez vous ,Svp
+                      sélect Temps qui vous convient
+                    </p>
+                  </div>
+                  <div className="dateK">
+                    <div>
+                      <KeyboardDatePicker
+                        // orientation="landscape"
+                        autoOk
+                        // variant="inline"
+                        inputVariant="outlined"
+                        // label="select Date"
+                        format="MM/dd/yyyy"
+                        value={myDate}
+                        onChange={(date) => {
+                          handeldatechange(date);
+                        }}
                       />
-                      {inputError.firstname !== "" && (
-                        <div className="error">{inputError.firstname}</div>
-                      )}
                     </div>
+                  </div>
+                  <div className="timeK react-email-form">
+                    {!loader &&
+                      arrTime.map((tm) => (
+                        <div
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          onClick={() => setTime(tm)}
+                          className=" form-group mt-md-0 me-2"
+                        >
+                          <div className="hours my-2 p-2">{tm}</div>
+                        </div>
+                      ))}
+                    {loader && (
+                      <strong style={{ textAlign: "center" }}>
+                        En cour de traitement...
+                      </strong>
+                    )}
+                  </div>
+                </div>
+                <div
+                  className="modal"
+                  id="myModal"
+                  style={{ marginTop: "80px" }}
+                >
+                  <div className="modal-dialog">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <h5 className="modal-title">Prenez rendez-vous</h5>
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          style={{ color: "white" }}
+                        ></button>
+                      </div>
+                      <div className="modal-body">
+                        <form
+                          onSubmit={handleSubmitContact}
+                          className="react-email-form row"
+                        >
+                          <div className="section-title col-md-12"></div>
+                          <div className="col-md-6 mb-2 col-sm-12 form-group mt-md-0">
+                            <input
+                              type="text"
+                              name="firstname"
+                              className="form-control"
+                              id="firstname"
+                              placeholder="Nom *"
+                              value={firstname}
+                              onChange={(e) => handleInputChange(e)}
+                            />
+                            {inputError.firstname !== "" && (
+                              <div className="error">
+                                {inputError.firstname}
+                              </div>
+                            )}
+                          </div>
 
-                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
-                      <input
-                        type="text"
-                        name="lastname"
-                        className="form-control"
-                        id="lastname"
-                        placeholder="Prénom *"
-                        value={lastname}
-                        onChange={(e) => handleInputChange(e)}
-                        // onKeyUp={() => isEmpty()}
-                      />
-                      {inputError.lastname !== "" && (
-                        <div className="error">{inputError.lastname}</div>
-                      )}
+                          <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                            <input
+                              type="text"
+                              name="lastname"
+                              className="form-control"
+                              id="lastname"
+                              placeholder="Prénom *"
+                              value={lastname}
+                              onChange={(e) => handleInputChange(e)}
+                            />
+                            {inputError.lastname !== "" && (
+                              <div className="error">{inputError.lastname}</div>
+                            )}
+                          </div>
+
+                          <div className="col-md-12 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                            <input
+                              type="email"
+                              className="form-control"
+                              name="email"
+                              id="email"
+                              placeholder="E-mail *"
+                              value={email}
+                              onChange={(e) => handleInputChange(e)}
+                            />
+                            {inputError.email !== "" && (
+                              <div className="error">{inputError.email}</div>
+                            )}
+                          </div>
+
+                          <div className="col-md-12 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+                            <input
+                              type="number"
+                              className="form-control"
+                              name="phone"
+                              id="phone"
+                              placeholder="Télephone *"
+                              value={phone}
+                              onChange={(e) => handleInputChange(e)}
+                            />
+                            {inputError.phone !== "" && (
+                              <div className="error">{inputError.phone}</div>
+                            )}
+                          </div>
+                          {!loader && (
+                            <button
+                              id="btnEnvoyez"
+                              type="submit"
+                              style={{
+                                marginBottom: "20px",
+                                marginTop: "20px",
+                              }}
+                              className="btn"
+                              disabled={!enabled}
+                            >
+                              Envoyer
+                            </button>
+                          )}
+                             {loader && (
+                            <button
+                              id="btnEnvoyez"
+                              type="submit"
+                              style={{
+                                marginBottom: "20px",
+                                marginTop: "20px",
+                              }}
+                              className="btn"
+                              disabled
+                            >
+                            <i className="fas fa-spinner fa-spin"></i>
+                              Envoyer...
+                            </button>
+                          )}
+                        </form>
+                      </div>
+                      {/* <div className="modal-footer">
+                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-danger">Cancel</button>
+                    </div> */}
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
 
-                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
-                      <input
-                        type="email"
-                        className="form-control"
-                        name="email"
-                        id="email"
-                        placeholder="E-mail *"
-                        value={email}
-                        onChange={(e) => handleInputChange(e)}
-                        // onKeyUp={() => isEmpty()}
-                      />
-                      {inputError.email !== "" && (
-                        <div className="error">{inputError.email}</div>
-                      )}
-                    </div>
+export default Appointment;
 
-                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
-                      <input
-                        type="number"
-                        className="form-control"
-                        name="phone"
-                        id="phone"
-                        placeholder="Télephone *"
-                        value={phone}
-                        onChange={(e) => handleInputChange(e)}
-                        // onKeyUp={() => isEmpty()}
-                      />
-                      {inputError.phone !== "" && (
-                        <div className="error">{inputError.phone}</div>
-                      )}
-                    </div>
+{
+  /* <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+<select
+  className="form-select lg"
+  aria-label="Default select example"
+  name="time"
+  id="time"
+  value={time}
+  onChange={(e) => handleInputChange(e)}
+  onKeyUp={() => isEmpty()}
+>
+  <option selected="">Le temps de render-vous *</option>
+  <option value="9:00">9:00</option>
+  <option value="10:00">10:00</option>
+  <option value="11:00">11:00</option>
+  <option value="12:00">12:00</option>
+  <option value="13:00">13:00</option>
+  <option value="14:00">14:00</option>
+  <option value="15:00">15:00</option>
+  <option value="16:00">16:00</option>
+  <option value="17:00">17:00</option>
+  <option value="18:00">18:00</option>
+  <option value="19:00">19:00</option>
+  <option value="20:00">20:00</option>
+  <option value="21:00">21:00</option>
+  <option value="22:00">22:00</option>
+</select>
+</div>
+{inputError.time !== "" && (
+<div className="error">{inputError.time}</div>
+)}
 
-                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
+
+  <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
                       <input
                         type="date"
                         className="form-control"
@@ -274,56 +403,6 @@ function Appointment() {
                       )}
                     </div>
 
-                    <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
-                      <select
-                        className="form-select lg"
-                        aria-label="Default select example"
-                        name="time"
-                        id="time"
-                        value={time}
-                        onChange={(e) => handleInputChange(e)}
-                        // onKeyUp={() => isEmpty()}
-                      >
-                        <option selected="">Le temps de render-vous *</option>
-                        <option value="9:00">9:00</option>
-                        <option value="10:00">10:00</option>
-                        <option value="11:00">11:00</option>
-                        <option value="12:00">12:00</option>
-                        <option value="13:00">13:00</option>
-                        <option value="14:00">14:00</option>
-                        <option value="15:00">15:00</option>
-                        <option value="16:00">16:00</option>
-                        <option value="17:00">17:00</option>
-                        <option value="18:00">18:00</option>
-                        <option value="19:00">19:00</option>
-                        <option value="20:00">20:00</option>
-                        <option value="21:00">21:00</option>
-                        <option value="22:00">22:00</option>
-                      </select>
-                    </div>
-                    {inputError.time !== "" && (
-                      <div className="error">{inputError.time}</div>
-                    )}
 
-                    <button
-                      id="btnEnvoyez"
-                      type="submit"
-                      style={{ marginBottom: "20px", marginTop: "20px" }}
-                      className="btn"
-                      // disabled={disabled} onClick={setDisabled}
-                      disabled={!enabled}
-                    >
-                      Envoyer
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+*/
 }
-
-export default Appointment;

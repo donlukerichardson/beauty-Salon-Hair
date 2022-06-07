@@ -43,7 +43,7 @@ function Footer() {
         </div>
         <div className="copy">
           <p>© Tous les droits sont réservés</p>
-          <span>Créé par 🤎 Tendance Web</span>
+          <span>Créé par 🤎 A.Z.K Web</span>
         </div>
       </footer>
     </>

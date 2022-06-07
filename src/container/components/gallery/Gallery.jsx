@@ -7,7 +7,7 @@ function Gallery() {
         <div className="gallery-content">
           <div className="section-title">
             <h1>Galerie</h1>
-            <span>les princesses de notre instagram</span>
+            {/* <span>les princesses de notre instagram</span> */}
           </div>
           <div className="gallery-list-img">
             <div className="gallery-img">
@@ -35,7 +35,7 @@ function Gallery() {
               <img src="img/img-insta/photo8.png" alt=''/>
             </div>
           </div>
-          <button className="btn">voir plus</button>
+          {/* <button className="btn">voir plus</button> */}
         </div>
       </section>
     </>

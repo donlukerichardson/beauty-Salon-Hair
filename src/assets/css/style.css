@@ -38,6 +38,60 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.MuiOutlinedInput-adornedEnd{
+  height: 44px;
+  /* border: 1px solid #f971ae; */
+}
+.MuiPickersToolbar-toolbar ,.MuiPickersDay-daySelected{
+  background-color:#f971ae !important;
+}
+.MuiInputBase-root {
+  color: #552887 !important;
+  font-weight: 600 !important;
+}
+.modal-backdrop.show {
+  opacity: 0.2;
+}
+.modal-header{
+  background-color: #f971ae;
+}
+.dateK{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.timeK{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.timeK input {
+  margin-top: 10px;
+  margin-bottom: 10px !important;
+}
+.timeApp{
+ background-color: transparent !important;
+}
+.modal-title{
+  font-family: var(--font-cursive);
+  font-size: var(--big-font-size);
+  font-weight: 400;
+  line-height: 3rem;
+  color: white;
+}
 /* Buttons */
 .btn {
   width: 250px;
@@ -848,7 +902,7 @@ body {
 }
 .about .react-email-form input {
   padding: 10px 15px;
-  max-width: 250px;
+  /* max-width: 250px; */
   margin: 0px auto;
   border-radius: 10px;
   border: 2px solid #f971ae;
@@ -1099,4 +1153,20 @@ body {
 .error {
   text-align: center;
   color: rgb(254, 61, 61)
+}
+.hours {
+  width: 100px;
+  border: 2px solid #da4378;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #552887;
+  cursor: pointer;
+  padding: 6px !important;
+}
+
+.hours:hover {
+  color: white;
+  background-color: #da4378;
 }
