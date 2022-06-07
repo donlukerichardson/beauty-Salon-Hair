@@ -317,7 +317,7 @@ function Appointment() {
                               Envoyer
                             </button>
                           )}
-                             {loader && (
+                          {loader && (
                             <button
                               id="btnEnvoyez"
                               type="submit"
@@ -328,7 +328,7 @@ function Appointment() {
                               className="btn"
                               disabled
                             >
-                            <i className="fas fa-spinner fa-spin"></i>
+                              <i className="fas fa-spinner fa-spin"></i>
                               Envoyer...
                             </button>
                           )}

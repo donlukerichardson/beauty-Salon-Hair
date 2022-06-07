@@ -46,16 +46,17 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.MuiOutlinedInput-adornedEnd{
+.MuiOutlinedInput-adornedEnd {
   height: 44px;
   /* border: 1px solid #f971ae; */
 }
-.MuiPickersToolbar-toolbar ,.MuiPickersDay-daySelected{
-  background-color:#f971ae !important;
+.MuiPickersToolbar-toolbar,
+.MuiPickersDay-daySelected {
+  background-color: #f971ae !important;
 }
 .MuiInputBase-root {
   color: #552887 !important;
@@ -64,16 +65,16 @@ input[type=number] {
 .modal-backdrop.show {
   opacity: 0.2;
 }
-.modal-header{
+.modal-header {
   background-color: #f971ae;
 }
-.dateK{
+.dateK {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-bottom: 10px;
 }
-.timeK{
+.timeK {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -82,10 +83,10 @@ input[type=number] {
   margin-top: 10px;
   margin-bottom: 10px !important;
 }
-.timeApp{
- background-color: transparent !important;
+.timeApp {
+  background-color: transparent !important;
 }
-.modal-title{
+.modal-title {
   font-family: var(--font-cursive);
   font-size: var(--big-font-size);
   font-weight: 400;
@@ -928,7 +929,6 @@ input[type=number] {
   box-shadow: none;
   font-size: 14px;
   border-radius: 4px;
- 
 }
 
 .form-select {
@@ -1149,10 +1149,9 @@ input[type=number] {
   }
 }
 
-
 .error {
   text-align: center;
-  color: rgb(254, 61, 61)
+  color: rgb(254, 61, 61);
 }
 .hours {
   width: 100px;
