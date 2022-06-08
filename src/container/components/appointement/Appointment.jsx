@@ -4,11 +4,11 @@ import {
   getTimes,
 } from "../../../axios/service/appointment";
 import { sendContact } from "../../../telegrame/bot";
-import "react-toastify/dist/ReactToastify.css";
-import { toast } from "react-toastify";
 import moment from "moment";
 import { KeyboardDatePicker } from "@material-ui/pickers";
-
+import {toast} from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
+toast.configure()
 function Appointment() {
   const [myDate, setMyDate] = useState(new Date());
   const [time, setTime] = useState("");
@@ -124,7 +124,9 @@ function Appointment() {
       .then(({ data }) => {
         if (!data.err) {
           toast.success("message succes");
-          window.location.reload();
+          // window.location.reload();
+          document.getElementById("datePicker").click()
+          document.getElementById("myModal").click()
           const message = `Bonjour Lamassati\nIl ya un rendez-vous avec <b>${
             newData.firstname
           } ${newData.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
@@ -190,14 +192,16 @@ function Appointment() {
                       <KeyboardDatePicker
                         // orientation="landscape"
                         autoOk
-                        // variant="inline"
                         inputVariant="outlined"
-                        // label="select Date"
                         format="MM/dd/yyyy"
                         value={myDate}
                         onChange={(date) => {
                           handeldatechange(date);
                         }}
+                        onClick={(date) => {
+                          handeldatechange(date);
+                        }}
+                        id="datePicker"
                       />
                     </div>
                   </div>
@@ -209,6 +213,7 @@ function Appointment() {
                           data-bs-target="#myModal"
                           onClick={() => setTime(tm)}
                           className=" form-group mt-md-0 me-2"
+                          
                         >
                           <div className="hours my-2 p-2">{tm}</div>
                         </div>
@@ -232,6 +237,7 @@ function Appointment() {
                         <button
                           type="button"
                           className="btn-close"
+                          id="btn-close"
                           data-bs-dismiss="modal"
                           style={{ color: "white" }}
                         ></button>
@@ -329,11 +335,11 @@ function Appointment() {
                               disabled
                             >
                               <i className="fas fa-spinner fa-spin"></i>
-                              Envoyer...
+                              
                             </button>
                           )}
                         </form>
-                      </div>
+                      </div> 
                       {/* <div className="modal-footer">
                         <button type="submit" className="btn btn-primary">Submit</button>
                         <button type="submit" class="btn btn-danger">Cancel</button>
