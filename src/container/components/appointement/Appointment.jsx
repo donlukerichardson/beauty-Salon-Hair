@@ -119,7 +119,6 @@ function Appointment() {
     // });
 
     setLoader(true);
-
     createAppointment(newData)
       .then(({ data }) => {
         if (!data.err) {
@@ -127,7 +126,7 @@ function Appointment() {
           // window.location.reload();
           document.getElementById("datePicker").click()
           document.getElementById("myModal").click()
-          const message = `Bonjour Lamassati\nIl ya un rendez-vous avec <b>${
+          const message = `Bonjour Lamassati\Il ya un rendez-vous avec <b>${
             newData.firstname
           } ${newData.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
             newData.date
