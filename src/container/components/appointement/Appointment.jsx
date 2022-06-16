@@ -8,6 +8,7 @@ import moment from "moment";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import {toast} from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
+import 'react-datetime/css/react-datetime.css';
 toast.configure()
 function Appointment() {
   const [myDate, setMyDate] = useState(new Date());
@@ -28,13 +29,23 @@ function Appointment() {
     phone: "",
   });
 
-  const { firstname, lastname, email, phone } = formData;
+  const { firstname, lastname, email, phone} = formData;
   const enabled =
     firstname.length > 0 &&
     lastname.length > 0 &&
     email.length > 0 &&
     phone.length > 0;
 
+
+// disable past dates :
+const disablePastDate = () => {
+  var today,dd,mm,yyyy;
+  today=new Date();
+  dd=today.getDate();
+  mm=today.getMonth()+1;
+  yyyy=today.getFullYear();
+  return yyyy+"-"+mm+"-"+dd;
+}
   const handeldatechange = (date) => {
     setMyDate(date);
     //  console.log(new Date(moment(date).format("MM/dd/yyyy")).toISOString());
@@ -47,7 +58,8 @@ function Appointment() {
           setArrTime(data.msg);
         } else {
           const error = typeof data.msg === "string" ? data.msg : data.msg[0];
-          toast.error(error);
+          console.log(error);
+        
         }
       })
       .catch((err) => {
@@ -101,22 +113,17 @@ function Appointment() {
       }
     }
 
-    if (time === "") {
-      toast.error("error");
-    }
-
-    //  const newDate = new Date(date).getTimezoneOffset() + (1000 * 60 * 60)
+    //const newDate = new Date(date).getTimezoneOffset() + (1000 * 60 * 60)
     const newData = {
       ...formData,
-      date: moment(myDate).format("YYYY-MM-DD"),
+       date: moment(myDate).format("YYYY-MM-DD"),
+      // date: moment(myDate,"YYYY-MM-DD"),
       time: time,
     };
 
-    // setStuff({
-    //   loader: false,
-    //   successMessage: "Rndez-vous d'opération réussie.",
-    //   errorMessage: "",
-    // });
+    if (time === " ") {
+      toast.error("error");
+    }
 
     setLoader(true);
     createAppointment(newData)
@@ -126,7 +133,7 @@ function Appointment() {
           // window.location.reload();
           document.getElementById("datePicker").click()
           document.getElementById("myModal").click()
-          const message = `Bonjour Lamassati\Il ya un rendez-vous avec <b>${
+          const message = `Bonjour Lamassati Il ya un rendez-vous avec <b>${
             newData.firstname
           } ${newData.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
             newData.date
@@ -136,7 +143,6 @@ function Appointment() {
             newData.email
           }\n<b>❄ Phone:</b> ${newData.phone}`;
           sendContact(message);
-
           setFormData({
             firstname: "",
             lastname: "",
@@ -148,8 +154,8 @@ function Appointment() {
         } else {
           console.log(data.msg);
           const error = typeof data.msg === "string" ? data.msg : data.msg[0];
-
-          toast.error(error);
+          console.log(error);
+           toast.error(error);
           setLoader(false);
         }
       })
@@ -193,6 +199,7 @@ function Appointment() {
                         autoOk
                         inputVariant="outlined"
                         format="MM/dd/yyyy"
+                        // formatDate={() => moment(new Date()).format('MM-DD-YYYY')}
                         value={myDate}
                         onChange={(date) => {
                           handeldatechange(date);
@@ -201,6 +208,9 @@ function Appointment() {
                           handeldatechange(date);
                         }}
                         id="datePicker"
+                        // isValidDate={disablePastDt}
+                         minDate={disablePastDate()}
+                        // maxDate={disablePastDate()}      
                       />
                     </div>
                   </div>
@@ -212,7 +222,7 @@ function Appointment() {
                           data-bs-target="#myModal"
                           onClick={() => setTime(tm)}
                           className=" form-group mt-md-0 me-2"
-                          
+                      
                         >
                           <div className="hours my-2 p-2">{tm}</div>
                         </div>

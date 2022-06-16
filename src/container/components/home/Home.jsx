@@ -6,23 +6,23 @@ function Home() {
       <section className="home">
         <div className="container">
           <div className="home-img">
-            <img src="/img/home-img.png" alt="" />
+            <img src="/img/home-img.png" alt="" /> 
           </div>
           <div className="home-content">
             <h1>
-              Bienvenue
+             Bienvenue  
               <br />
-              <span>dans Salon Lamasati</span>
+              <span>au Salon Lamasati</span> 
             </h1>
-            <h1>Votre grand jour dans le style</h1>
+            <h1>dans une ambiance chaleureuse et reposante</h1>
       
             <a
-              href="http://wa.me/+212680830141"
+              href="http://wa.me/+212700893408"
               target="_blank"
               className="btn btn-outline"
             >
               <i className="fab fa-whatsapp" />
-              Planifiez votre temps
+              Contactez-nous 	&#128513;
             </a>
            
             {/* <a

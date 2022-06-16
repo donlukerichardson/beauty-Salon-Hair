@@ -33,7 +33,7 @@ function Footer() {
             <h2>Nous avons ouvert</h2>
             <p>
               Chaque Jours
-              <br /> De 09h00 à 23h00
+              <br /> De 09h00 à 21h00
             </p>
           </div>
           <div className="footer-data">

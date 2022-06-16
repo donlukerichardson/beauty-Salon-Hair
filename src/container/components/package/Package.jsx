@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 function Package() {
   return (
     <>
-     <section className=" package" id="package">
+      <section className=" package" id="package">
         <div className="section-title">
           <h1>Forfaits Promotionnels</h1>
           <span>pour la fête de votre mariéey</span>
@@ -27,11 +27,20 @@ function Package() {
                 <p>Aisselle</p>
               </div>
               <div className="item">
-              <i className="fa-solid fa-dollar-sign"></i>
-                <p>139 dhs <span>(Au lieu de )</span> <strong className='crwa'>255dhs</strong>  </p>
+                <i className="fa-solid fa-dollar-sign"></i>
+                <p>
+                  139 dhs <span>(Au lieu de )</span>{" "}
+                  <strong className="crwa">255dhs</strong>{" "}
+                </p>
               </div>
-              <button className="btn">Je veux ceci</button>
-            </div>             
+              <a
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Bronze} est-il disponible ?"
+                target="_blank"
+              >
+                <button className="btn">send message</button>
+              </a>
+              {/* <button className="btn">Je veux ceci</button> */}
+            </div>
           </div>
           <div className="card">
             <div className="card-title">
@@ -55,11 +64,19 @@ function Package() {
                 <p>Les poointes</p>
               </div>
               <div className="item">
-              <i className="fa-solid fa-dollar-sign"></i>
-                <p>149 dhs <span>(Au lieu de )</span> <strong className='crwa'>25O dhs</strong>  </p>
+                <i className="fa-solid fa-dollar-sign"></i>
+                <p>
+                  149 dhs <span>(Au lieu de )</span>{" "}
+                  <strong className="crwa">25O dhs</strong>{" "}
+                </p>
               </div>
-              <button className="btn">Je veux ceci</button>
-            </div>             
+              <a
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Argent} est-il disponible ?"
+                target="_blank"
+              >
+                <button className="btn">send message</button>
+              </a>
+            </div>
           </div>
           <div className="card">
             <div className="card-title">
@@ -82,20 +99,28 @@ function Package() {
                 <i className="far fa-check-square check-icon" />
                 <p>Brushing</p>
               </div>
-            
+
               <div className="item">
-              <i className="fa-solid fa-dollar-sign"></i>
-                <p>49 dhs <span>(Au lieu de )</span> <strong className='crwa'>10O dhs</strong>  </p>
+                <i className="fa-solid fa-dollar-sign"></i>
+                <p>
+                  49 dhs <span>(Au lieu de )</span>{" "}
+                  <strong className="crwa">10O dhs</strong>{" "}
+                </p>
               </div>
-              <button className="btn">Je veux ceci</button>
-            </div>             
+              <a
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Gold} est-il disponible ?"
+                target="_blank"
+              >
+                <button className="btn">send message</button>
+              </a>
+            </div>
           </div>
           <div className="card">
             <div className="card-title">
               <h1>Diamant</h1>
             </div>
             <div className="card-items">
-            <div className="item">
+              <div className="item">
                 <i className="far fa-check-square check-icon" />
                 <p>Makeup professionnel</p>
               </div>
@@ -108,16 +133,24 @@ function Package() {
                 <p>Demi chignon</p>
               </div>
               <div className="item">
-              <i className="fa-solid fa-dollar-sign"></i>
-                <p>189 dhs <span>(Au lieu de )</span> <strong className='crwa'>400 dhs</strong>  </p>
+                <i className="fa-solid fa-dollar-sign"></i>
+                <p>
+                  189 dhs <span>(Au lieu de )</span>{" "}
+                  <strong className="crwa">400 dhs</strong>{" "}
+                </p>
               </div>
-              <button className="btn">Je Veux Ceci</button>
-            </div>             
+              <a
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Diamant} est-il disponible ?"
+                target="_blank"
+              >
+                <button className="btn">send message</button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
 
-export default Package
+export default Package;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 function Gallery() {
   return (
@@ -10,36 +10,37 @@ function Gallery() {
             {/* <span>les princesses de notre instagram</span> */}
           </div>
           <div className="gallery-list-img">
-            <div className="gallery-img">
-              <img src="/img/img-insta/photo1.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo2.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo3.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo4.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo5.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo6.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo7.png" alt=''/>
-            </div>
-            <div className="gallery-img">
-              <img src="img/img-insta/photo8.png" alt=''/>
+            <div className="container row">
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g1.jpeg" alt="" />
+              </div>
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g2.jpeg" alt="" />
+              </div>
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g3.jpeg" alt="" />
+              </div>
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g8.jpeg" alt="" />
+              </div>
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g5.jpeg" alt="" />
+              </div>
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g6.jpeg" alt="" />
+              </div>
+              <div className="gallery-img col-md-3">
+                <img src="/img/galerie/g7.jpeg" alt="" />
+              </div>
+
             </div>
           </div>
+
           {/* <button className="btn">voir plus</button> */}
         </div>
       </section>
     </>
-  )
+  );
 }
 
-export default Gallery
+export default Gallery;

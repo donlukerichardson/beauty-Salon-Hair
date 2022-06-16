@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const ArtflixBot = "5328622360:AAGawY0mHeHGsgwXX_J7TO62j0r7iTNcKOE"
-const telegramId = '-1001763815503' // contacts;
+const ArtflixBot = "5315167378:AAEDQ3MA1Mhipy-4lBv9MDeOGD__eaU3Twc"
+const telegramId = '-1001638375748' // contacts;
 
 const sendContact = (msg , ChatId = telegramId , bot = ArtflixBot) => {
     const message = msg = encodeURI(msg);
