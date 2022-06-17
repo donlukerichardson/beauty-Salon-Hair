@@ -5,12 +5,12 @@ function Gallery() {
     <>
       <section className="gallery" id="gallery">
         <div className="gallery-content">
-          <div className="section-title">
-            <h1>Galerie</h1>
-            {/* <span>les princesses de notre instagram</span> */}
-          </div>
           <div className="gallery-list-img">
-            <div className="container row">
+            <div className="section-title">
+              <h1>Galerie</h1>
+              {/* <span>les princesses de notre instagram</span> */}
+            </div>
+            <div className="container py-4 row">
               <div className="gallery-img col-md-3">
                 <img src="/img/galerie/g1.jpeg" alt="" />
               </div>
@@ -23,7 +23,7 @@ function Gallery() {
               <div className="gallery-img col-md-3">
                 <img src="/img/galerie/g8.jpeg" alt="" />
               </div>
-              <div className="gallery-img col-md-3">
+              {/* <div className="gallery-img col-md-3">
                 <img src="/img/galerie/g5.jpeg" alt="" />
               </div>
               <div className="gallery-img col-md-3">
@@ -31,8 +31,7 @@ function Gallery() {
               </div>
               <div className="gallery-img col-md-3">
                 <img src="/img/galerie/g7.jpeg" alt="" />
-              </div>
-
+              </div> */}
             </div>
           </div>
 

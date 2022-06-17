@@ -6,10 +6,11 @@ import {
 import { sendContact } from "../../../telegrame/bot";
 import moment from "moment";
 import { KeyboardDatePicker } from "@material-ui/pickers";
-import {toast} from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css'; 
-import 'react-datetime/css/react-datetime.css';
-toast.configure()
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import 'react-datetime/css/react-datetime.css';
+toast.configure();
 function Appointment() {
   const [myDate, setMyDate] = useState(new Date());
   const [time, setTime] = useState("");
@@ -29,23 +30,22 @@ function Appointment() {
     phone: "",
   });
 
-  const { firstname, lastname, email, phone} = formData;
+  const { firstname, lastname, email, phone } = formData;
   const enabled =
     firstname.length > 0 &&
     lastname.length > 0 &&
     email.length > 0 &&
     phone.length > 0;
 
-
-// disable past dates :
-const disablePastDate = () => {
-  var today,dd,mm,yyyy;
-  today=new Date();
-  dd=today.getDate();
-  mm=today.getMonth()+1;
-  yyyy=today.getFullYear();
-  return yyyy+"-"+mm+"-"+dd;
-}
+  // disable past dates :
+  const disablePastDate = () => {
+    var today, dd, mm, yyyy;
+    today = new Date();
+    dd = today.getDate();
+    mm = today.getMonth() + 1;
+    yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+  };
   const handeldatechange = (date) => {
     setMyDate(date);
     //  console.log(new Date(moment(date).format("MM/dd/yyyy")).toISOString());
@@ -59,7 +59,6 @@ const disablePastDate = () => {
         } else {
           const error = typeof data.msg === "string" ? data.msg : data.msg[0];
           console.log(error);
-        
         }
       })
       .catch((err) => {
@@ -116,7 +115,7 @@ const disablePastDate = () => {
     //const newDate = new Date(date).getTimezoneOffset() + (1000 * 60 * 60)
     const newData = {
       ...formData,
-       date: moment(myDate).format("YYYY-MM-DD"),
+      date: moment(myDate).format("YYYY-MM-DD"),
       // date: moment(myDate,"YYYY-MM-DD"),
       time: time,
     };
@@ -128,20 +127,22 @@ const disablePastDate = () => {
     setLoader(true);
     createAppointment(newData)
       .then(({ data }) => {
+       
         if (!data.err) {
           toast.success("message succes");
           // window.location.reload();
-          document.getElementById("datePicker").click()
-          document.getElementById("myModal").click()
+          document.getElementById("datePicker").click();
+          document.getElementById("myModal").click();
           const message = `Bonjour Lamassati Il ya un rendez-vous avec <b>${
-            newData.firstname
-          } ${newData.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
-            newData.date
-          ).format("DD/MM/YYYY")}\n<b>❄ Hours:</b> ${moment(
-            newData.date
-          ).format("HH:mm")}\n<b>❄ Email:</b> ${
-            newData.email
-          }\n<b>❄ Phone:</b> ${newData.phone}`;
+            newData?.firstname
+          } ${newData?.lastname} 😁 </b>\n<b>❄ Date:</b> ${moment(
+            newData?.date
+          ).format("DD/MM/YYYY")}\n<b>❄ Hours:</b> ${
+            newData?.time
+          }\n<b>❄ Email:</b> ${newData.email}\n<b>❄ Phone:</b> ${
+            newData?.phone
+          }`;
+          
           sendContact(message);
           setFormData({
             firstname: "",
@@ -149,13 +150,14 @@ const disablePastDate = () => {
             email: "",
             phone: "",
           });
-
+       
           setLoader(false);
         } else {
           console.log(data.msg);
           const error = typeof data.msg === "string" ? data.msg : data.msg[0];
           console.log(error);
-           toast.error(error);
+          toast.error(error);
+       
           setLoader(false);
         }
       })
@@ -168,7 +170,7 @@ const disablePastDate = () => {
 
   useEffect(() => {
     handeldatechange(new Date());
-  }, []);
+  }, [loader]);
 
   return (
     <>
@@ -196,41 +198,42 @@ const disablePastDate = () => {
                     <div>
                       <KeyboardDatePicker
                         // orientation="landscape"
-                        autoOk
+                        // autoOk
                         inputVariant="outlined"
-                        format="MM/dd/yyyy"
+                        format="dd/MM/yyyy"
+                        InputProps={{ readOnly: true }}
                         // formatDate={() => moment(new Date()).format('MM-DD-YYYY')}
                         value={myDate}
                         onChange={(date) => {
                           handeldatechange(date);
                         }}
-                        onClick={(date) => {
-                          handeldatechange(date);
-                        }}
+                        // onClick={(date) => {
+                        //   handeldatechange(date);
+                        // }}
                         id="datePicker"
                         // isValidDate={disablePastDt}
-                         minDate={disablePastDate()}
-                        // maxDate={disablePastDate()}      
+                        minDate={disablePastDate()}
+                        // maxDate={disablePastDate()}
                       />
                     </div>
                   </div>
                   <div className="timeK react-email-form">
                     {!loader &&
-                      arrTime.map((tm) => (
+                      arrTime.map((tm, i) => (
                         <div
+                          key={i}
                           data-bs-toggle="modal"
                           data-bs-target="#myModal"
                           onClick={() => setTime(tm)}
                           className=" form-group mt-md-0 me-2"
-                      
                         >
                           <div className="hours my-2 p-2">{tm}</div>
                         </div>
                       ))}
                     {loader && (
-                      <strong style={{ textAlign: "center" }}>
+                      <span style={{ textAlign: "center" }}>
                         En cour de traitement...
-                      </strong>
+                      </span>
                     )}
                   </div>
                 </div>
@@ -344,11 +347,10 @@ const disablePastDate = () => {
                               disabled
                             >
                               <i className="fas fa-spinner fa-spin"></i>
-                              
                             </button>
                           )}
                         </form>
-                      </div> 
+                      </div>
                       {/* <div className="modal-footer">
                         <button type="submit" className="btn btn-primary">Submit</button>
                         <button type="submit" class="btn btn-danger">Cancel</button>
