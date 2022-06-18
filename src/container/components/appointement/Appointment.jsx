@@ -122,7 +122,7 @@ function Appointment() {
     createAppointment(newData)
       .then(({ data }) => {
         if (!data.err) {
-          toast.success("message succes");
+          toast.success("Rendez-vous créer avec succes");
           // window.location.reload();
           document.getElementById("datePicker").click();
           document.getElementById("myModal").click();
@@ -187,7 +187,6 @@ function Appointment() {
                     <div>
                       <KeyboardDatePicker
                         // orientation="landscape"
-
                         inputVariant="outlined"
                         format="dd/MM/yyyy"
                         InputProps={{ readOnly: true }}

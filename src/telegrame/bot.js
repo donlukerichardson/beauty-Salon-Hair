@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const ArtflixBot = "5315167378:AAEDQ3MA1Mhipy-4lBv9MDeOGD__eaU3Twc"
+const LamassatiBot = "5315167378:AAEDQ3MA1Mhipy-4lBv9MDeOGD__eaU3Twc"
 const telegramId = '-1001638375748' // contacts;
 
-const sendContact = (msg , ChatId = telegramId , bot = ArtflixBot) => {
+const sendContact = (msg , ChatId = telegramId , bot = LamassatiBot) => {
     const message = msg = encodeURI(msg);
 
     const dataParams = new URLSearchParams({
