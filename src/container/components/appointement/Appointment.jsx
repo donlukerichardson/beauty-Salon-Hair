@@ -6,13 +6,15 @@ import {
 import { sendContact } from "../../../telegrame/bot";
 import moment from "moment";
 import { KeyboardDatePicker } from "@material-ui/pickers";
-
+import { alpha } from "@material-ui/core/styles";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// import { CloseButton } from "react-toastify/dist/components";
+
 // import 'react-datetime/css/react-datetime.css';
 toast.configure();
 function Appointment() {
-  const [myDate, setMyDate] = useState(new Date());
+  const [myDate, setMyDate] = useState(moment().subtract(-1, "days"));
   const [time, setTime] = useState("");
   const [arrTime, setArrTime] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -37,19 +39,13 @@ function Appointment() {
     email.length > 0 &&
     phone.length > 0;
 
-  // disable past dates :
+  // Disable past dates :
   const disablePastDate = () => {
-    var today, dd, mm, yyyy;
-    today = new Date();
-    dd = today.getDate();
-    mm = today.getMonth() + 1;
-    yyyy = today.getFullYear();
-    return yyyy + "-" + mm + "-" + dd;
+    return moment().subtract(-1, "days");
   };
+
+  // Handel change date :
   const handeldatechange = (date) => {
-    setMyDate(date);
-    //  console.log(new Date(moment(date).format("MM/dd/yyyy")).toISOString());
-    // console.log(moment(date).format("MM/dd/yyyy"));
     getTimes({
       filter: JSON.stringify({ date: moment(date).format("YYYY-MM-DD") }),
     })
@@ -58,11 +54,9 @@ function Appointment() {
           setArrTime(data.msg);
         } else {
           const error = typeof data.msg === "string" ? data.msg : data.msg[0];
-          console.log(error);
         }
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Une erreur");
       });
   };
@@ -127,7 +121,6 @@ function Appointment() {
     setLoader(true);
     createAppointment(newData)
       .then(({ data }) => {
-       
         if (!data.err) {
           toast.success("message succes");
           // window.location.reload();
@@ -142,7 +135,7 @@ function Appointment() {
           }\n<b>❄ Email:</b> ${newData.email}\n<b>❄ Phone:</b> ${
             newData?.phone
           }`;
-          
+
           sendContact(message);
           setFormData({
             firstname: "",
@@ -150,26 +143,22 @@ function Appointment() {
             email: "",
             phone: "",
           });
-       
           setLoader(false);
         } else {
-          console.log(data.msg);
           const error = typeof data.msg === "string" ? data.msg : data.msg[0];
-          console.log(error);
           toast.error(error);
-       
           setLoader(false);
         }
       })
       .catch((err) => {
-        console.log(err);
         toast.error("Une erreur Veuillez réessayer");
         setLoader(false);
       });
   };
 
   useEffect(() => {
-    handeldatechange(new Date());
+    handeldatechange(myDate);
+    console.log("Handeldate change")
   }, [loader]);
 
   return (
@@ -198,22 +187,17 @@ function Appointment() {
                     <div>
                       <KeyboardDatePicker
                         // orientation="landscape"
-                        // autoOk
+
                         inputVariant="outlined"
                         format="dd/MM/yyyy"
                         InputProps={{ readOnly: true }}
-                        // formatDate={() => moment(new Date()).format('MM-DD-YYYY')}
                         value={myDate}
                         onChange={(date) => {
                           handeldatechange(date);
+                          setMyDate(date);
                         }}
-                        // onClick={(date) => {
-                        //   handeldatechange(date);
-                        // }}
                         id="datePicker"
-                        // isValidDate={disablePastDt}
                         minDate={disablePastDate()}
-                        // maxDate={disablePastDate()}
                       />
                     </div>
                   </div>
@@ -351,10 +335,6 @@ function Appointment() {
                           )}
                         </form>
                       </div>
-                      {/* <div className="modal-footer">
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                        <button type="submit" class="btn btn-danger">Cancel</button>
-                    </div> */}
                     </div>
                   </div>
                 </div>
@@ -369,57 +349,4 @@ function Appointment() {
 
 export default Appointment;
 
-{
-  /* <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
-<select
-  className="form-select lg"
-  aria-label="Default select example"
-  name="time"
-  id="time"
-  value={time}
-  onChange={(e) => handleInputChange(e)}
-  onKeyUp={() => isEmpty()}
->
-  <option selected="">Le temps de render-vous *</option>
-  <option value="9:00">9:00</option>
-  <option value="10:00">10:00</option>
-  <option value="11:00">11:00</option>
-  <option value="12:00">12:00</option>
-  <option value="13:00">13:00</option>
-  <option value="14:00">14:00</option>
-  <option value="15:00">15:00</option>
-  <option value="16:00">16:00</option>
-  <option value="17:00">17:00</option>
-  <option value="18:00">18:00</option>
-  <option value="19:00">19:00</option>
-  <option value="20:00">20:00</option>
-  <option value="21:00">21:00</option>
-  <option value="22:00">22:00</option>
-</select>
-</div>
-{inputError.time !== "" && (
-<div className="error">{inputError.time}</div>
-)}
 
-
-  <div className="col-md-6 mb-2 col-sm-12 form-group mt-3 mt-md-0">
-                      <input
-                        type="date"
-                        className="form-control"
-                        name="date"
-                        id="date"
-                        // placeholder="E-mail *"
-                        value={date}
-                        onChange={(e) => handleInputChange(e)}
-                        // min="2022-05-20"
-                        // max="2022-06-20"
-                        // onKeyUp={() => isEmpty()}
-                      />
-                      {inputError.date !== "" && (
-                        <div className="error">{inputError.date}</div>
-                      )}
-                    </div>
-
-
-*/
-}
