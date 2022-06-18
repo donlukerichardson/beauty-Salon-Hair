@@ -8,7 +8,10 @@ function Footer() {
           <div className="footer-data">
             <img src="img/service/logo.png" alt="" style={{ width: "200px" }} />
             <div className="footer-data-social">
-              <a href="#facebook">
+              <a
+                target="_blank"
+                href="https://www.facebook.com/Lamassati-Beauty-Center-109539648216585"
+              >
                 <i className="fab fa-facebook" />
               </a>
               <a
