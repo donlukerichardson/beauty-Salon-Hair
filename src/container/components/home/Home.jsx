@@ -3,7 +3,7 @@ import React from "react";
 function Home() {
   return (
     <>
-      <section className="home">
+      <section id="accueil" className="home">
         <div className="container">
           <div className="home-img">
             <img src="/img/home-img.png" alt="" />
