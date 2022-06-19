@@ -34,7 +34,7 @@ function Package() {
                 </p>
               </div>
               <a
-                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Bronze} est-il disponible ?"
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack Bronze est-il disponible ?"
                 target="_blank"
               >
                 <button className="btn btn-send-msg">send message</button>
@@ -71,7 +71,7 @@ function Package() {
                 </p>
               </div>
               <a
-                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Argent} est-il disponible ?"
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack Argent est-il disponible ?"
                 target="_blank"
               >
                 <button className="btn btn-send-msg">send message</button>
@@ -108,7 +108,7 @@ function Package() {
                 </p>
               </div>
               <a
-                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Gold} est-il disponible ?"
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack Gold est-il disponible ?"
                 target="_blank"
               >
                 <button className="btn btn-send-msg">send message</button>
@@ -140,7 +140,7 @@ function Package() {
                 </p>
               </div>
               <a
-                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack ${Diamant} est-il disponible ?"
+                href="https://api.whatsapp.com/send?phone=+212700893408&text=Bonjour Lamassati, ce pack Diamant est-il disponible ?"
                 target="_blank"
               >
                 <button className="btn btn-send-msg">send message</button>
