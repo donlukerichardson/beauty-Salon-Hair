@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function Header() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isActive, setIsActive] = useState("accueil");
   // const toggleMenu =(e)=> {
   //   e.target.parentElement.previousSibling.classList.toggle("show-nav");
   // }
@@ -31,37 +32,79 @@ function Header() {
               onClick={() => setIsMobile(false)}
             >
               <li>
-                <a href="#accueil" className="nav-link active">
+                <a
+                  href="#accueil"
+                  className={
+                    isActive === "accueil" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("accueil")}
+                >
                   Accueil
                 </a>
               </li>
               <li>
-                <a href="#about" className="nav-link">
+                <a
+                  href="#about"
+                  className={
+                    isActive === "about" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("about")}
+                >
                   A propos
                 </a>
               </li>
               <li>
-                <a href="#services" className="nav-link">
+                <a
+                  href="#services"
+                  className={
+                    isActive === "services" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("services")}
+                >
                   Service
                 </a>
               </li>
               <li>
-                <a href="#package" className="nav-link">
+                <a
+                  href="#package"
+                  className={
+                    isActive === "package" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("package")}
+                >
                   Forfaits
                 </a>
               </li>
               <li>
-                <a href="#Rdv" className="nav-link">
+                <a
+                  href="#Rdv"
+                  className={
+                    isActive === "Rdv" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("Rdv")}
+                >
                   Prenez rendez-vous
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="nav-link">
+                <a
+                  href="#gallery"
+                  className={
+                    isActive === "gallery" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("gallery")}
+                >
                   Galerie
                 </a>
               </li>
               <li>
-                <a href="#contact" className="nav-link">
+                <a
+                  href="#contact"
+                  className={
+                    isActive === "contact" ? "nav-link active" : "nav-link"
+                  }
+                  onClick={() => setIsActive("contact")}
+                >
                   Contacte
                 </a>
               </li>
