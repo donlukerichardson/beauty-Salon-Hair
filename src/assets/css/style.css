@@ -425,7 +425,7 @@ input[type="number"] {
   border-radius: 0 300px;
 }
 .package-cards {
-  /* max-width: 1200px; */
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -1187,5 +1187,9 @@ input[type="number"] {
   }
   .btn-send-msg{
     width: 180px ;
+  }
+  .card{
+    min-width: 294px;
+    margin-left: -42px;
   }
 }

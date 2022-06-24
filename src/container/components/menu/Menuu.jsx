@@ -97,7 +97,7 @@ function Menuu() {
                     aria-controls="pack"
                     aria-selected="true"
                   >
-                    Pack Marée
+                    Pack Mariée
                   </button>
                 </li>
                 <li className="nav-item" role="presentation">

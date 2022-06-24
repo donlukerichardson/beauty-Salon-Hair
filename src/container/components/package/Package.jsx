@@ -8,7 +8,7 @@ function Package() {
           <h1>Forfaits Promotionnels</h1>
           <span>pour la fête de votre mariéey</span>
         </div>
-        <div className="package-cards">
+        {/* <div className="package-cards">
           <div className="card">
             <div className="card-title">
               <h1>Bronze</h1>
@@ -39,7 +39,6 @@ function Package() {
               >
                 <button className="btn btn-send-msg">send message</button>
               </a>
-              {/* <button className="btn">Je veux ceci</button> */}
             </div>
           </div>
           <div className="card">
@@ -148,10 +147,8 @@ function Package() {
             </div>
           </div>
           
-        </div>
-        <div className="row">
-
-        </div>
+        </div> */}
+        <div className="">
         <div className="package-cards">
         <div className="card col-md-3">
             <div className="card-title">
@@ -182,7 +179,7 @@ function Package() {
                 <i className="fa-solid fa-dollar-sign"></i>
                 <p>
                   800 dhs <span>(Au lieu de )</span>{" "}
-                  <strong className="crwa">899 dhs</strong>
+                  <strong className="crwa">990 dhs</strong>
                 </p>
               </div>
               <a
@@ -322,6 +319,8 @@ function Package() {
           </div>
           
         </div>
+        </div>
+   
       </section>
     </>
   );
