@@ -1189,7 +1189,7 @@ input[type="number"] {
     width: 180px ;
   }
   .card{
-    min-width: 294px;
-    margin-left: -42px;
+    min-width: 300px;
+    margin-left: -39px;
   }
 }

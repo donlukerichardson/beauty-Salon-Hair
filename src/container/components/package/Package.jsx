@@ -150,7 +150,7 @@ function Package() {
         </div> */}
         <div className="">
         <div className="package-cards">
-        <div className="card col-md-3">
+        <div className="card ">
             <div className="card-title">
               <h1>Mariée</h1>
             </div>
@@ -190,7 +190,7 @@ function Package() {
               </a>
             </div>
           </div>
-          <div className="card col-md-3">
+          <div className="card ">
             <div className="card-title">
               <h1>Invitée</h1>
             </div>
@@ -230,7 +230,7 @@ function Package() {
               </a>
             </div>
           </div>
-          <div className="card col-md-3">
+          <div className="card ">
             <div className="card-title">
               <h1>Invitée professionnel</h1>
             </div>
@@ -270,7 +270,7 @@ function Package() {
               </a>
             </div>
           </div>
-          <div className="card col-md-3">
+          <div className="card ">
             <div className="card-title">
               <h1>Coloration</h1>
             </div>
