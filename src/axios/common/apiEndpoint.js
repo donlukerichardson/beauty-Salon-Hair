@@ -6,6 +6,7 @@ const Host = {
         : "https://api.lamassati.ma",
     PREFIX: "/v1/api",
   };
+  
   const ApiEndpoints = {
     AppointmentEndpoints: {
       route: `${Host.PREFIX}/appointment`,

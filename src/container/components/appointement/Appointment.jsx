@@ -10,7 +10,6 @@ import { alpha } from "@material-ui/core/styles";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { CloseButton } from "react-toastify/dist/components";
-
 // import 'react-datetime/css/react-datetime.css';
 toast.configure();
 function Appointment() {
