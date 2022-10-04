@@ -2,8 +2,8 @@ const Host = {
     ROOT: "https://back-salon.herokuapp.com",
     BACKEND:
       !process.env.NODE_ENV || process.env.NODE_ENV === "development"
-        ? "https://api.lamassati.ma"
-        : "https://api.lamassati.ma",
+        ? "https://lamassati-api.herokuapp.com"
+        : "https://lamassati-api.herokuapp.com",
     PREFIX: "/v1/api",
   };
   
